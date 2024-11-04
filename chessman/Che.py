@@ -16,24 +16,30 @@ class Che(ChessPiece):
                 return "images/BR.gif"
 
 
-    def can_move(self, board, dx, dy):
-        if dx != 0 and dy != 0:
-            #print 'no diag'
-            return False
-        nx, ny = self.x + dx, self.y + dy
-        cnt = self.count_pieces(board, self.x, self.y, dx, dy)
-        print 'cnt', cnt
-        if (nx, ny) not in board.pieces:
-            if cnt!= 0:
-                #print 'blocked'
-                return False
-        else:
-            if cnt != 0:
-                #print 'cannot kill'
-                return False
-            print 'kill a chessman'
-        return True
+    # def can_move(self, board, dx, dy):
+    #     if dx != 0 and dy != 0:
+    #         #print 'no diag'
+    #         return False
+    #     nx, ny = self.x + dx, self.y + dy
+    #     cnt = self.count_pieces(board, self.x, self.y, dx, dy)
+    #     # print('cnt', cnt)
+    #     if (nx, ny) not in board.pieces:
+    #         if cnt!= 0:
+    #             #print 'blocked'
+    #             return False
+    #     else:
+    #         if cnt != 0:
+    #             #print 'cannot kill'
+    #             return False
+    #         elif self.is_red == board.pieces[(nx, ny)].is_red: # same color
+    #             #print 'same color'
+    #             return False
+    #         # print('kill a chessman')
+    #     return True
 
-    def __init__(self, x, y, is_red):
-        ChessPiece.__init__(self, x, y, is_red)
+    # def __init__(self, x, y, is_red):
+    #     ChessPiece.__init__(self, x, y, is_red)
+
+    def __init__(self, is_red):
+        ChessPiece.__init__(self, is_red)
 

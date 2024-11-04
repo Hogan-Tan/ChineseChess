@@ -16,22 +16,28 @@ class Xiang(ChessPiece):
                 return "images/BB.gif"
 
 
-    def can_move(self, board, dx, dy):
-        x,y = self.x, self.y
-        nx, ny = x + dx, y + dy
-        if (self.is_red and ny > 4) or (self.is_red== False and ny <5):
-            #print 'no river cross'
-            return False
+    # def can_move(self, board, dx, dy):
+    #     x,y = self.x, self.y
+    #     nx, ny = x + dx, y + dy
+    #     if (self.is_red and ny > 4) or (self.is_red== False and ny <5):
+    #         #print 'no river cross'
+    #         return False
+    #
+    #     if abs(dx)!=2 or abs(dy)!=2:
+    #         #print 'not normal'
+    #         return False
+    #     sx, sy = dx/abs(dx), dy/abs(dy)
+    #     if (x+sx, y+sy) in board.pieces:  # 撬象脚
+    #         #print 'blocked'
+    #         return False
+    #     if board.pieces.get((nx, ny)):
+    #         if self.is_red == board.pieces.get((nx, ny)).is_red:  # same color
+    #             # print 'same color'
+    #             return False
+    #     return True
 
-        if abs(dx)!=2 or abs(dy)!=2:
-            #print 'not normal'
-            return False
-        sx, sy = dx/abs(dx), dy/abs(dy)
-        if (x+sx, y+sy) in board.pieces:
-            #print 'blocked'
-            return False
-        return True
+    # def __init__(self, x, y, is_red):
+    #     ChessPiece.__init__(self, x, y, is_red)
 
-    def __init__(self, x, y, is_red):
-        ChessPiece.__init__(self, x, y, is_red)
-
+    def __init__(self, is_red):
+        ChessPiece.__init__(self, is_red)
